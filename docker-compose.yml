@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: percona/percona-server:5.7
+    container_name: mysql
+    command: "mysqld --lower-case-table-names=1 --default_authentication_plugin=mysql_native_password"
+    user: root
+    volumes:
+      - /home/datikken/Documents/test/storage:/var/lib/mysql
+      - /home/datikken/Documents/test/storage:/tmp
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+
+volumes:
+  storage:
